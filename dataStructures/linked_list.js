@@ -33,10 +33,31 @@ class LinkedList {
     return size;
   };
 
+  // Constant time operation = O(1)
   addItem = (value) => {
     let newItem = new Node(value);
     newItem.nextNode = this.head;
     this.head = newItem;
+  };
+
+  // Linear time operation = O(n)
+  representation = () => {
+    const currentList = [];
+    let current = this.head;
+
+    while (current) {
+      if (current === this.head) {
+        currentList.push(`Head ${current.value}`);
+      } else if (current.nextNode === null) {
+        currentList.push(`Tail ${current.value}`);
+      } else {
+        currentList.push(current.value);
+      }
+
+      current = current.nextNode;
+    }
+
+    return currentList;
   };
 }
 
@@ -48,3 +69,4 @@ L1.addItem(4);
 
 console.log(L1);
 console.log(L1.getSize());
+console.log(L1.representation());
