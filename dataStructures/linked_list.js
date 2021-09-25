@@ -54,6 +54,33 @@ class LinkedList {
     return null;
   };
 
+  // Insertion takes constant time = O(1)
+  //  Search node takes linear time = O(n)
+  // Overall O(n)
+  insert = (value, index) => {
+    if (index === 0) {
+      this.addItem(value);
+    }
+
+    // TODO: Add check for index being greater than size of the list
+
+    if (index > 0) {
+      let newItem = new Node(value);
+
+      let position = index;
+      let current = this.head;
+
+      // Execute loop until it points to the item before the index
+      while (position > 1) {
+        current = current.nextNode;
+        position -= 1;
+      }
+
+      newItem.nextNode = current.nextNode;
+      current.nextNode = newItem;
+    }
+  };
+
   // Linear time operation = O(n)
   representation = () => {
     const currentList = [];
@@ -76,9 +103,13 @@ class LinkedList {
 }
 
 const L1 = new LinkedList();
-L1.addItem(1);
-L1.addItem(2);
-L1.addItem(3);
-L1.addItem(4);
+L1.addItem(11);
+L1.addItem(32);
+L1.addItem(35);
+L1.addItem(14);
 
-console.log(L1.search(10));
+// console.log(L1.search(10));
+
+console.log(L1.representation());
+L1.insert(17, 4);
+console.log(L1.representation());
