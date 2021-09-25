@@ -55,7 +55,7 @@ class LinkedList {
   };
 
   // Insertion takes constant time = O(1)
-  //  Search node takes linear time = O(n)
+  // Search node takes linear time = O(n)
   // Overall O(n)
   insert = (value, index) => {
     if (index === 0) {
@@ -81,9 +81,10 @@ class LinkedList {
     }
   };
 
+  // Linear run operation = O(n)
   remove = (searchValue) => {
     let current = this.head;
-    let previous = false;
+    let previous = null;
     let found = false;
 
     while (current && !found) {
