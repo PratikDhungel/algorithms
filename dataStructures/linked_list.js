@@ -103,6 +103,28 @@ class LinkedList {
     return current;
   };
 
+  // Linear run operation = O(n)
+  removeAtIndex = (index) => {
+    let current = this.head;
+    let position = index;
+
+    if (position === 0) {
+      this.head = current.nextNode;
+      return current;
+    }
+
+    let previous = null;
+
+    while (position > 0) {
+      previous = current;
+      current = current.nextNode;
+      position -= 1;
+    }
+
+    previous.nextNode = current.nextNode;
+    return current;
+  };
+
   // Linear time operation = O(n)
   representation = () => {
     const currentList = [];
@@ -139,6 +161,10 @@ L1.addItem(531);
 // L1.insert(17, 4);
 // console.log(L1.representation());
 
+// console.log(L1.representation());
+// console.log(L1.remove(11));
+// console.log(L1.representation());
+
 console.log(L1.representation());
-console.log(L1.remove(11));
+L1.removeAtIndex(2);
 console.log(L1.representation());
