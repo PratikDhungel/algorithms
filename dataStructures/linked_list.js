@@ -81,6 +81,27 @@ class LinkedList {
     }
   };
 
+  remove = (searchValue) => {
+    let current = this.head;
+    let previous = false;
+    let found = false;
+
+    while (current && !found) {
+      if (current.value === searchValue && current === this.head) {
+        found = true;
+        this.head = current.nextNode;
+      } else if (current.value === searchValue) {
+        found = true;
+        previous.nextNode = current.nextNode;
+      } else {
+        previous = current;
+        current = current.nextNode;
+      }
+    }
+
+    return current;
+  };
+
   // Linear time operation = O(n)
   representation = () => {
     const currentList = [];
@@ -107,9 +128,16 @@ L1.addItem(11);
 L1.addItem(32);
 L1.addItem(35);
 L1.addItem(14);
+L1.addItem(89);
+L1.addItem(973);
+L1.addItem(531);
 
 // console.log(L1.search(10));
 
+// console.log(L1.representation());
+// L1.insert(17, 4);
+// console.log(L1.representation());
+
 console.log(L1.representation());
-L1.insert(17, 4);
+console.log(L1.remove(11));
 console.log(L1.representation());
