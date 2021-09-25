@@ -41,6 +41,20 @@ class LinkedList {
   };
 
   // Linear time operation = O(n)
+  search = (key) => {
+    let current = this.head;
+
+    while (current) {
+      if (current.value === key) {
+        return current;
+      } else {
+        current = current.nextNode;
+      }
+    }
+    return null;
+  };
+
+  // Linear time operation = O(n)
   representation = () => {
     const currentList = [];
     let current = this.head;
@@ -67,6 +81,4 @@ L1.addItem(2);
 L1.addItem(3);
 L1.addItem(4);
 
-console.log(L1);
-console.log(L1.getSize());
-console.log(L1.representation());
+console.log(L1.search(10));
