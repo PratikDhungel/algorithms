@@ -70,5 +70,5 @@ const numbersList = [89, 29, 14, 65, 93, 67, 23, 53, 82, 5, 21, 64, 80, 12, 71];
 const sortedList = mergeSort(numbersList);
 console.log(sortedList);
 
-console.log(verifySorted(numbersList));
-console.log(verifySorted(sortedList));
+// console.log(verifySorted(numbersList));
+// console.log(verifySorted(sortedList));

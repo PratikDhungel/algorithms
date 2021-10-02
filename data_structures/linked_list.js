@@ -28,8 +28,9 @@ class LinkedList {
 
     while (current) {
       size += 1;
-      current = this.nextNode;
+      current = current.nextNode;
     }
+
     return size;
   };
 
@@ -38,6 +39,22 @@ class LinkedList {
     let newItem = new Node(value);
     newItem.nextNode = this.head;
     this.head = newItem;
+  };
+
+  getItemAtIndex = (index) => {
+    if (index === 0) {
+      return this.head;
+    }
+
+    let current = this.head;
+    let i = 0;
+
+    while (i < index) {
+      current = current.nextNode;
+      i++;
+    }
+
+    return current;
   };
 
   // Linear time operation = O(n)
@@ -126,7 +143,7 @@ class LinkedList {
   };
 
   // Linear time operation = O(n)
-  representation = () => {
+  repr = () => {
     const currentList = [];
     let current = this.head;
 
@@ -146,25 +163,29 @@ class LinkedList {
   };
 }
 
-const L1 = new LinkedList();
-L1.addItem(11);
-L1.addItem(32);
-L1.addItem(35);
-L1.addItem(14);
-L1.addItem(89);
-L1.addItem(973);
-L1.addItem(531);
+// (() => {
+//   const L1 = new LinkedList();
+//   L1.addItem(11);
+//   L1.addItem(32);
+//   L1.addItem(35);
+//   L1.addItem(14);
+//   L1.addItem(89);
+//   L1.addItem(973);
+//   L1.addItem(531);
 
-// console.log(L1.search(10));
+//   // console.log(L1.search(10));
 
-// console.log(L1.representation());
-// L1.insert(17, 4);
-// console.log(L1.representation());
+//   // console.log(L1.repr());
+//   // L1.insert(17, 4);
+//   // console.log(L1.repr());
 
-// console.log(L1.representation());
-// console.log(L1.remove(11));
-// console.log(L1.representation());
+//   // console.log(L1.repr());
+//   // console.log(L1.remove(11));
+//   // console.log(L1.repr());
 
-console.log(L1.representation());
-L1.removeAtIndex(2);
-console.log(L1.representation());
+//   console.log(L1.repr());
+//   L1.removeAtIndex(2);
+//   console.log(L1.repr());
+// })();
+
+module.exports = LinkedList;
