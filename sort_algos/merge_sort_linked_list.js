@@ -1,5 +1,6 @@
 const LinkedList = require('../data_structures/linked_list');
 
+// Takes O(k log n) time
 const splitList = (linkedList) => {
   let leftHalf = null;
   let rightHalf = null;
@@ -18,6 +19,7 @@ const splitList = (linkedList) => {
   return { leftHalf, rightHalf };
 };
 
+// Takes O(n) time
 const mergeList = (leftHalf, rightHalf) => {
   const merged = new LinkedList();
 
@@ -62,6 +64,7 @@ const mergeList = (leftHalf, rightHalf) => {
   return merged;
 };
 
+// Overall run time: O(kn log n)
 const mergeSort = (linkedList) => {
   if (linkedList.getSize() <= 1) {
     return linkedList;
