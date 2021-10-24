@@ -1,20 +1,10 @@
 const Node = require('./binary_tree');
 
-const treeIncludesBFS = (root, target) => {
+const treeIncludesDFS = (root, target) => {
   if (root === null) return false;
+  if (root.value === target) return true;
 
-  const queue = [root];
-
-  while (queue.length > 0) {
-    const topItem = queue.shift();
-
-    if (topItem.value === target) return true;
-
-    topItem.left && queue.push(topItem.left);
-    topItem.right && queue.push(topItem.right);
-  }
-
-  return false;
+  return treeIncludesDFS(root.left, target) || treeIncludesDFS(root.right, target);
 };
 
 const a = new Node('a');
@@ -36,4 +26,4 @@ c.right = f;
 //      / \     \
 //     d   e     f
 
-console.log(treeIncludesBFS(a, 'f'));
+console.log(treeIncludesDFS(a, 'f'));
