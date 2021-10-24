@@ -1,7 +1,7 @@
 const Node = require('./binary_tree');
 
 const breadthFirstSearch = (root, target) => {
-  if (root === null) return [];
+  if (root === null) return false;
 
   const queue = [root];
 
