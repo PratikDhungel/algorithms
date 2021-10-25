@@ -8,11 +8,7 @@ const maxRootLeafSum = (root) => {
   // If both children are null, ignore recursion and return value
   if (root.left === null && root.right === null) return root.value;
 
-  const leftValue = maxRootLeafSum(root.left);
-  const rightValue = maxRootLeafSum(root.right);
-
-  console.log(`Returning, ${root.value} + ${Math.max(leftValue, rightValue)}`);
-  return root.value + Math.max(leftValue, rightValue);
+  return root.value + Math.max(maxRootLeafSum(root.left), maxRootLeafSum(root.right));
 };
 
 const a = new Node(5);

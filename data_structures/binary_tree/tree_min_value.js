@@ -5,10 +5,7 @@ const treeMinValue = (root) => {
   // Add Base Case
   if (root === null) return Infinity;
 
-  const leftValue = treeMinValue(root.left);
-  const rightValue = treeMinValue(root.right);
-
-  return Math.min(root.value, leftValue, rightValue);
+  return Math.min(root.value, treeMinValue(root.left), treeMinValue(root.right));
 };
 
 const a = new Node(3);
